@@ -8,6 +8,8 @@ import {
   Rewind,
   Pause,
   RefreshCcw,
+  Sun,
+  Moon,
 } from "@emotion-icons/feather"
 
 export default {
@@ -41,6 +43,14 @@ export default {
     },
     refresh: {
       path: <RefreshCcw />,
+      viewBox: "0 0 24 24",
+    },
+    sun: {
+      path: <Sun />,
+      viewBox: "0 0 24 24",
+    },
+    moon: {
+      path: <Moon />,
       viewBox: "0 0 24 24",
     },
   },
