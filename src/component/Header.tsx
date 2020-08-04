@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react"
-import { Box } from "@chakra-ui/core"
+import { Flex } from "@chakra-ui/core"
 
 interface Props {
   children?: React.ReactNode
@@ -7,8 +7,8 @@ interface Props {
 
 export default function Header({ children }: Props): ReactElement {
   return (
-    <Box m={0} px={4} py={4}>
+    <Flex m={0} px={4} py={4} mb={6} position='relative' justifyContent='center'>
       {children}
-    </Box>
+    </Flex>
   )
 }

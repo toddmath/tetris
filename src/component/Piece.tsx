@@ -1,8 +1,6 @@
 import React from "react"
 import { Box, useColorMode } from "@chakra-ui/core"
 
-// import { Tetro, Origin } from "machine/tetromino"
-
 interface CellProps {
   x: number
   y: number
@@ -26,6 +24,10 @@ interface PieceProps {
   origin?: Tetromino.Origin
 }
 
+function positiveTetros(tetros: Tetromino.Config, y: number) {
+  return tetros.filter(point => y + point.y >= 0)
+}
+
 export function Piece({
   tetrominos,
   color,
@@ -33,11 +35,9 @@ export function Piece({
   x,
   y,
 }: React.PropsWithChildren<PieceProps>) {
-  const tetros = tetrominos.filter(point => y + point.y >= 0)
-
   return (
     <React.Fragment>
-      {tetros.map((point, i) => (
+      {positiveTetros(tetrominos, y).map((point, i) => (
         <Cell
           key={i}
           origin={origin}
@@ -48,14 +48,6 @@ export function Piece({
       ))}
     </React.Fragment>
   )
-
-  // return [
-  //   ...tetrominos
-  //     .filter(point => y + point.y >= 0)
-  //     .map((point, i) => {
-  //       return <Cell key={i} color={color} x={x + point.x} y={y + point.y} />
-  //     }),
-  // ]
 }
 
 type GhostProps = Omit<PieceProps, "color">

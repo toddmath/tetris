@@ -12,7 +12,11 @@ export function Button({
   children,
 }: React.PropsWithChildren<Props>) {
   return (
-    <Btn onClick={onClick} gridColumn={1} variantColor={highlight ? "blue" : "gray"}>
+    <Btn
+      onClick={onClick}
+      gridColumn='1 / span 2'
+      variantColor={highlight ? "blue" : "gray"}
+    >
       {children}
     </Btn>
   )

@@ -10,9 +10,9 @@ function App() {
   return (
     <React.Fragment>
       <Header>
+        <Title />
         <ThemeSwitch />
       </Header>
-      <Title />
       <Tetris />
     </React.Fragment>
   )

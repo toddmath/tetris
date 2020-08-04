@@ -5,40 +5,15 @@ import { Icon } from "@chakra-ui/core"
 import { tetrominos, colors } from "machine/tetromino"
 import { head } from "util/index"
 import { useTetrisState } from "hook/index"
-import { Layout, Layer, PlayField, NextField, Stats } from "./Layout"
+import { Layout, Layer, PlayField, NextField } from "./Layout"
 import { Piece, GhostPiece, Cell } from "./Piece"
-import { Label } from "./Label"
+import GameStats from "./GameStats"
+// import { Label } from "./Label"
 import { Button } from "./Button"
 
 export default function Tetris() {
   const state = useTetrisState()
-
   const startGame = () => state.send("STARTED")
-  // const moveLeft = () => state.send("MOVED_LEFT")
-  // const moveRight = () => state.send("MOVED_RIGHT")
-  // const rotate = () => state.send("ROTATED_CLOCKWISE")
-  // const moveDown = () => state.send("STARTED_DROP")
-  // const stopDrop = () => state.send("STOPPED_DROP")
-
-  // useKeyboardInputs({
-  //   onKeyDown: {
-  //     Escape: startGame,
-  //     a: moveLeft,
-  //     ArrowLeft: moveLeft,
-  //     d: moveRight,
-  //     ArrowRight: moveRight,
-  //     w: rotate,
-  //     ArrowUp: rotate,
-  //     s: moveDown,
-  //     ArrowDown: moveDown,
-  //     " ": () => state.send("HARD_DROPPED"),
-  //   },
-  //   onKeyUp: {
-  //     s: stopDrop,
-  //     ArrowDown: stopDrop,
-  //   },
-  // })
-
   const { falling, ghost, score, level, lines, matrix, next } = state.data
 
   return (
@@ -88,11 +63,7 @@ export default function Tetris() {
         ))}
       </NextField>
 
-      <Stats>
-        <Label>Score</Label> {score}
-        <Label>Level</Label> {level}
-        <Label>Lines</Label> {lines}
-      </Stats>
+      <GameStats score={score} level={level} lines={lines} />
 
       <Button highlight={!state.isIn("playing")} onClick={startGame}>
         {state.whenIn({
@@ -108,3 +79,11 @@ export default function Tetris() {
     </Layout>
   )
 }
+
+/*
+<Stats>
+  <Label>Score</Label> {score}
+  <Label>Level</Label> {level}
+  <Label>Lines</Label> {lines}
+</Stats>
+*/
