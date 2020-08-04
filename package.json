@@ -1,5 +1,11 @@
 {
-  "name": "xstetris",
+  "name": "tetris",
+  "description": "Classic game of Tetris. Built with react, state-designer, charkra-ui.",
+  "author": {
+    "email": "tmatheson11186@gmail.com",
+    "name": "Todd Matheson"
+  },
+  "homepage": "https://tetris-ts.netlify.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
